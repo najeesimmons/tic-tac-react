@@ -1,7 +1,12 @@
+import Box from "../Box/Box";
+
 function Gameboard() {
-    return (
-        <h2>This is the Gameboard</h2>
-    )
+  return (
+    <div>
+      <h2>Gameboard is rendering</h2>
+      <Box />
+    </div>
+  );
 }
 
-export default Gameboard
+export default Gameboard;
