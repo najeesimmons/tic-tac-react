@@ -6,4 +6,5 @@ export const GameBoardWrapper = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;
   width: fit-content;
+  margin-top: 50px;
 `;
