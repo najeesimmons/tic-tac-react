@@ -7,43 +7,52 @@ import { GameBoardWrapper } from "./Gameboard.styles";
 // });
 
 function Gameboard() {
-
-  const [position, setPosition] = useState([[],[],[]])
-  const [currentPlayer, setCurrentPlayer] = useState("x")
+  const [position, setPosition] = useState([[], [], []]);
+  const [currentPlayer, setCurrentPlayer] = useState("x");
   const handleClick = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (currentPlayer === "x") {
-      setCurrentPlayer("o")
+      console.log(currentPlayer)
+      setCurrentPlayer("o");
+      console.log(currentPlayer)
     } else {
-      setCurrentPlayer("x")
+      setCurrentPlayer("x");
+      console.log(currentPlayer)
     }
     // must add winning conditions + check here
 
     // usestate "isGameOver"
-  }
+  };
   // position = [x][y]
   const renderBoxes = (v, i) => {
-    let x,y
-    const row1 = [0,1,2]
-    const row2 = [3,4,5]
-    const row3 = [6,7,8]
+    let x, y;
+    const row1 = [0, 1, 2];
+    const row2 = [3, 4, 5];
+    const row3 = [6, 7, 8];
 
     if (row1.includes(i)) {
-      x = 0
+      x = 0;
     } else if (row2.includes(i)) {
-      x = 1
+      x = 1;
     } else if (row3.includes(i)) {
-      x = 2
+      x = 2;
     }
-  
-    return <Box key={`box_${i}`} currentPlayer={currentPlayer} handleClick={handleClick} index={i}/>;
+
+    return (
+      <Box
+        key={`box_${i}`}
+        currentPlayer={currentPlayer}
+        handleClick={handleClick}
+        index={i}
+      />
+    );
   };
   const boxes = Array.from({ length: 9 }, renderBoxes);
 
   return (
     <>
       <h1>React-Tac-Toe</h1>
-      <GameBoardWrapper >
+      <GameBoardWrapper>
         {boxes}
         {/* ^ array of components */}
       </GameBoardWrapper>
